@@ -1,7 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import TypeVar
 
-from .. import Transaction
+from module.transactions.concrete import Transaction
+
 
 T = TypeVar("T")
 

@@ -1,4 +1,4 @@
 from .factories.TransactionConverter import *
 from .factories.TextTransactionConverter import *
-from .TransactionInterface import *
-from .Transaction import *
+from .concrete.TransactionInterface import *
+from .concrete.Transaction import *

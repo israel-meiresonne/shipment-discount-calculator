@@ -1,6 +1,7 @@
 from module.enums import Provider, Size
+from module.transactions.concrete import Transaction
 from module.utils.other import Date
-from .. import Transaction, TransactionConverter
+from . import TransactionConverter
 
 
 class TextTransactionConverter(TransactionConverter):
