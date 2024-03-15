@@ -1,6 +1,6 @@
 from abc import ABC
 
-from module.utils.other import Date
+from module.utils import Date
 
 
 class TransactionInterface(ABC):
