@@ -12,16 +12,28 @@ class TransactionConverter(ABC):
         self._formatted = formatted
         self._transaction = transaction
 
-    def _set_formatted(self, formatted):
-        self._formatted = formatted
+    def to_format(self) -> T:
+        if self._transaction is None:
+            raise Exception("The transaction have to be set first")
+        formatted = self._formatted
+        if formatted is None:
+            formatted = self._create_formatted()
+            self._formatted = formatted
+        return formatted
 
-    def _set_transaction(self, transaction: Transaction):
-        self._transaction = transaction
+    def to_transaction(self) -> Transaction:
+        if self._formatted is None:
+            raise Exception("The formatted data have to be set first")
+        transaction = self._transaction
+        if transaction is None:
+            transaction = self._create_transaction()
+            self._transaction = transaction
+        return transaction
 
     @abstractmethod
-    def create_formatted(self) -> T:
+    def _create_formatted(self) -> T:
         pass
 
     @abstractmethod
-    def create_transaction(self) -> Transaction:
+    def _create_transaction(self) -> Transaction:
         pass

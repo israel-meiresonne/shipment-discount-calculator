@@ -15,9 +15,7 @@ class TextTransactionConverter(TransactionConverter):
         self._separator = separator
         self._empty = empty
 
-    def create_formatted(self) -> str:
-        if self._transaction is None:
-            raise Exception("The transaction can't be None")
+    def _create_formatted(self) -> str:
         transaction = self._transaction
         values = [
             transaction.get_date().iso_format(),
@@ -28,12 +26,9 @@ class TextTransactionConverter(TransactionConverter):
         ]
         joined = self._separator.join(values)
         formatted = joined.replace(str(None), self._empty)
-        self._set_formatted(formatted)
         return formatted
 
-    def create_transaction(self) -> Transaction:
-        if self._formatted is None:
-            raise Exception("The formatted data can't be None")
+    def _create_transaction(self) -> Transaction:
         pieces: list[str] = self._formatted.split(self._separator)
         for i in range(len(pieces)):
             match i:
@@ -44,5 +39,4 @@ class TextTransactionConverter(TransactionConverter):
                 case 2:
                     size = Size(pieces[i])
         transaction = Transaction(date, provider, size)
-        self._set_transaction(transaction)
         return transaction
