@@ -38,3 +38,6 @@ class ShippingRecord:
 
     def __hash__(self) -> int:
         return self.generate_hash(self._provider, self._size, self._price)
+
+    def __repr__(self) -> str:
+        return str(self.__dict__)

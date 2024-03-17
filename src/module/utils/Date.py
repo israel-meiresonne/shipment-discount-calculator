@@ -124,3 +124,9 @@ class Date:
         day_duration = datetime.timedelta(
             hours=23, minutes=59, seconds=59, microseconds=59)
         return last_day_timestamp + day_duration - first_day_timestamp
+
+    def __str__(self) -> str:
+        return self._datetime.__str__()
+
+    def __repr__(self) -> str:
+        return self.__str__()
