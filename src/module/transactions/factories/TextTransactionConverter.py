@@ -35,8 +35,8 @@ class TextTransactionConverter(TransactionConverter):
                 case 0:
                     date = Date(pieces[i])
                 case 1:
-                    provider = Provider(pieces[i])
-                case 2:
                     size = Size(pieces[i])
+                case 2:
+                    provider = Provider(pieces[i])
         transaction = Transaction(date, provider, size)
         return transaction
