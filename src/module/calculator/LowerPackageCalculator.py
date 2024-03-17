@@ -16,10 +16,13 @@ class LowerPackageCalculator(CalculatorDecorator):
         self._rates = rates
 
     def _discount(self, transaction: Transaction) -> None:
-        size = self._size
+        calculator_size = self._size
+        transaction_size = transaction.get_size()
+        if transaction_size != calculator_size:
+            return None
         rates = self._rates
         providers = tuple(Provider.__members__.values())
-        records = rates.get(providers, [size])
+        records = rates.get(providers, [calculator_size])
         sorted_records = list(sorted(records, key=lambda r: r.get_price()))
         lower_price_record = sorted_records[0]
         lower_price = lower_price_record.get_price()
