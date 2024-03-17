@@ -22,6 +22,13 @@ class FreePackageCalculator(CalculatorDecorator):
         self._history = history
 
     def _discount(self, transaction: Transaction) -> None:
+        calculator_size = self._size
+        calculator_provider = self._provider
+        transaction_size = transaction.get_size()
+        transaction_provider = transaction.get_provider()
+        if (transaction_size != calculator_size) \
+                or (transaction_provider != calculator_provider):
+            return None
         filtered = HelperForCalculator.filter_history(
             transaction, self._period, self._history)
         if self.can_discount(filtered):
