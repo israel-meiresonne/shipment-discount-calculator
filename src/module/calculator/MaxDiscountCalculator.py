@@ -18,13 +18,15 @@ class MaxDiscountCalculator(CalculatorDecorator):
         self._history = history
 
     def _discount(self, transaction: Transaction) -> None:
+        discount = transaction.get_discount()
+        if discount is None:
+            return None
         max_discount = self._max_discount
         filtered = HelperForCalculator.filter_history(
             transaction, self._period, self._history)
         sum_discount = self._aggregate_old_discount(filtered)
         if sum_discount < max_discount:
             amount = transaction.get_amount()
-            discount = transaction.get_discount()
             params = {
                 'initial_price': amount,
                 'period_accumulated': sum_discount,
