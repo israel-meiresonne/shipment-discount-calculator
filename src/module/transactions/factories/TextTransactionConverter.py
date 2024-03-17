@@ -17,15 +17,20 @@ class TextTransactionConverter(TransactionConverter):
 
     def _create_formatted(self) -> str:
         transaction = self._transaction
+        empty = self._empty
+        amount = transaction.get_amount()
+        discount = transaction.get_discount()
+        is_discount_none = discount is None
+        final_amount = amount - discount if (not is_discount_none) else amount
+        final_discount = f'{discount:.2f}' if not is_discount_none else empty
         values = [
             transaction.get_date().iso_format(),
             transaction.get_size(),
             transaction.get_provider(),
-            str(transaction.get_amount()),
-            str(transaction.get_discount())
+            f'{final_amount:.2f}',
+            final_discount
         ]
-        joined = self._separator.join(values)
-        formatted = joined.replace(str(None), self._empty)
+        formatted = self._separator.join(values)
         return formatted
 
     def _create_transaction(self) -> Transaction:
