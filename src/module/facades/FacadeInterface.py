@@ -5,24 +5,25 @@ T = TypeVar("T")
 
 
 class FacadeInterface(ABC):
-    """This class plays the role of a Facade between the client's code
-        and the whole module.
-        It responsible to provide the client's code with a shipment
-        discount calculation.
+    """This class plays the role of a Facade between the client's code and the
+        whole module.
+        It is responsible for providing the client code with access to the
+        Calculator which computes the shipping cost.
 
     Usage:
-        - For each new set of calculation rules, a new implementation of this
-            interface will be added.
-        - To provide shipment calculation, child will rely on a combination of
-            Calculator (see ./module/core and ./module/calculator).
-        - This implementation allows maximum flexibility by allowing the
-            co-existence of a multiple set of calculation rules totally
-            independent of each other.
-        - The structured data passed to the method `calculate_shipment` is
-            not bound to any specific type or format that allows to implement
-            the interface for any type or data format encountered.
-            For instance, you can implement a facade that handles transaction
-            in a JSON format.
+    - For each new set of calculation rules, a new implementation of this
+        interface will be added.
+    - To provide shipment calculations, children will rely on a combination of
+        Calculator (see ./module/core and ./module/calculator).
+    - This implementation allows maximum flexibility by allowing the
+        co-existence of a multiple set of calculation rules totally
+        independent of each other.
+    - The structured data passed to the method `calculate_shipment` is
+        not bound to any specific type or format that allows to implement
+        the interface for any type or data format encountered.
+        For instance, you can implement a facade that handles transactions
+        in a JSON format.
+
     """
 
     @classmethod
