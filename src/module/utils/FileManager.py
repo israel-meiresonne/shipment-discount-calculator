@@ -18,7 +18,6 @@ class FileManager:
             object: The parsed data from the JSON file (can be a dictionary, list, etc.).
 
         """
-
         with open(filepath, "r") as file:
             try:
                 data = json.load(file)
