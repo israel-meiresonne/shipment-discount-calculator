@@ -1,3 +1,3 @@
-from .Period import *
-from .Provider import *
-from .Size import *
+from .Period import Period
+from .Provider import Provider
+from .Size import Size
