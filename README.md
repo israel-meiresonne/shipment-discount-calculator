@@ -22,7 +22,7 @@ Module to calculate shipment price for a given transaction and history.
 2. Change your directory to the source code
 
     ```Shell
-    cd ./src
+    cd ./shipment-discount-calculator/src
     ```
 
 3. Run the Python main code
@@ -34,7 +34,7 @@ Module to calculate shipment price for a given transaction and history.
 4. Run the Python tests
 
     ```Shell
-    python tests.py
+    python test.py
     ```
 
 ## Run with Docker
@@ -45,26 +45,38 @@ Module to calculate shipment price for a given transaction and history.
     git clone https://github.com/israel-meiresonne/shipment-discount-calculator.git
     ```
 
-2. Start Python service from Docker-compose
+2. Change your directory to the cloned project
+
+    ```Shell
+    cd ./shipment-discount-calculator
+    ```
+
+3. Start Python service from Docker-compose
 
     ```Shell
     docker-compose up python-3.12.0 -d
     ```
 
-3. Run the Python main code
+4. Run the Python main code
 
     ```Shell
     docker exec python-shipment python main.py input.txt
     ```
 
-4. Run the Python tests
+5. Run the Python tests
 
     ```Shell
     docker exec python-shipment python test.py
     ```
 
-5. Shut down the Python service
+6. Shut down the Python service (optional)
 
     ```Shell
     docker-compose down python-3.12.0
+    ```
+
+7. Destroy the Python image used by Docker (optional)
+
+    ```Shell
+    docker image rm shipment-discount-calculator-python-3.12.0
     ```
