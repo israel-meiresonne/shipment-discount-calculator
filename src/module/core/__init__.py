@@ -1,3 +1,3 @@
-from .CalculatorInterface import *
-from .WrappableCalculator import *
-from .CalculatorDecorator import *
+from .CalculatorInterface import CalculatorInterface
+from .WrappableCalculator import WrappableCalculator
+from .CalculatorDecorator import CalculatorDecorator
