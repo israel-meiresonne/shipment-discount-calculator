@@ -85,45 +85,8 @@ class Date:
                 )
         return datetime.datetime(*params).timestamp()
 
-    def last_day_of(self, period: Period) -> float:
-        """
-        To get the last day of the period surrounding the date
-
-        Args:
-            period (Period): Period to get the last day of
-
-        Returns:
-            float: The Unix timestamp of last day of the period.
-        """
-        match period:
-            case Period.YEAR:
-                params = (self.year() + 1, 1, 1)
-            case Period.MONTH:
-                params = (self.year(), self.month() + 1, 1)
-            case Period.DAY:
-                params = (self.year(), self.month(), self.day() + 1)
-            case _:
-                raise ValueError(
-                    f"This Period is not supported: period='{period}'"
-                )
-        next_month = datetime.datetime(*params)
-        return (next_month - datetime.timedelta(days=1)).timestamp()
-
-    def duration_of(self, period: Period) -> float:
-        """
-        To get the duration of the period surrounding the date
-
-        Args:
-            period (Period): Period surrounding the date
-
-        Returns:
-            float: The Unix timestamp of the last day of the month.
-        """
-        first_day_timestamp = self.first_day_of(period)
-        last_day_timestamp = self.last_day_of(period)
-        day_duration = datetime.timedelta(
-            hours=23, minutes=59, seconds=59, microseconds=59)
-        return last_day_timestamp + day_duration - first_day_timestamp
+    def __eq__(self, __value: object) -> bool:
+        return self.__dict__ == __value.__dict__
 
     def __str__(self) -> str:
         return self._datetime.__str__()
