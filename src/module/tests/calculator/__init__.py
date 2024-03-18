@@ -1,0 +1,5 @@
+from .TestShippingCalculator import TestShippingCalculator
+from .TestLowerPackageCalculator import TestLowerPackageCalculator
+from .TestFreePackageCalculator import TestFreePackageCalculator
+from .TestMaxDiscountCalculator import TestMaxDiscountCalculator
+from .TestHelperForCalculator import TestHelperForCalculator
