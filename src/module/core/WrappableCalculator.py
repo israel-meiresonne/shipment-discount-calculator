@@ -1,5 +1,7 @@
-from module.core.CalculatorInterface import CalculatorInterface
+from module.core import CalculatorInterface
+from module.transactions import TransactionInterface
 
 
 class WrappableCalculator(CalculatorInterface):
-    pass
+    def calculate(self) -> TransactionInterface:
+        pass
