@@ -7,7 +7,7 @@ Module to calculate shipment price for a given transaction and history.
 * Python 3.12.0 (no dependencies)
 * Docker
 
-## UML Diagram
+## UML Class Diagram
 
 [<img src="./docs/rsc/final-class-diagram.drawio.svg" width="500">](./docs/rsc/final-class-diagram.drawio.svg)
 
