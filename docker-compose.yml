@@ -1,0 +1,10 @@
+services:
+  python-3.12.0:
+    container_name: python-shipment
+    restart: always
+    tty: true
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - ./src:/var/applications/app
