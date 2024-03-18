@@ -1,2 +1,2 @@
-from .TransactionConverter import *
-from .TextTransactionConverter import *
+from .TransactionConverter import TransactionConverter
+from .TextTransactionConverter import TextTransactionConverter

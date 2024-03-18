@@ -1,2 +1,2 @@
-from .TransactionInterface import *
-from .Transaction import *
+from .TransactionInterface import TransactionInterface
+from .Transaction import Transaction
