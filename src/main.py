@@ -1,7 +1,7 @@
 import sys
 from module import FirstFacade
 
-COUNTRY = 'france'
+COUNTRY = 'fr'
 FILE_INPUT = 'input.txt'
 
 
