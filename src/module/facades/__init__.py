@@ -1,1 +1,1 @@
-from .FirstFacade import *
+from .FirstFacade import FirstFacade
